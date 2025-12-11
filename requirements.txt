@@ -1,0 +1,26 @@
+# SupportBot - IT Knowledge Assistant
+# RAG dependencies
+
+# Core LangChain
+langchain>=0.2.0
+langchain-community>=0.2.0
+langchain-text-splitters>=0.2.0
+
+# Vector store
+chromadb>=0.4.0
+
+# Embeddings (using local Ollama, but this is backup)
+sentence-transformers>=2.2.0
+
+# Ollama Python client
+ollama>=0.1.0
+
+# Document loaders
+pypdf>=3.0.0
+python-docx>=0.8.11
+
+# Streamlit for UI (Week 4)
+streamlit>=1.30.0
+
+# Utilities
+python-dotenv>=1.0.0

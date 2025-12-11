@@ -1,0 +1,120 @@
+# Windows 11 Common Issues and Solutions
+
+## Taskbar Not Responding
+
+### Symptoms
+- Cannot click on taskbar icons
+- Start menu won't open
+- System tray unresponsive
+
+### Quick Fix
+1. Press Ctrl + Shift + Esc to open Task Manager
+2. Find "Windows Explorer" in the list
+3. Right-click > Restart
+
+### Permanent Fix
+If issue recurs frequently:
+1. Open Command Prompt as Administrator
+2. Run: sfc /scannow
+3. After completion, run: DISM /Online /Cleanup-Image /RestoreHealth
+4. Restart computer
+
+---
+
+## Windows 11 Running Slow After Update
+
+### Diagnostic Steps
+1. Check which update was installed: Settings > Windows Update > Update history
+2. Check disk usage: Task Manager > Performance > Disk
+3. Check startup programs: Task Manager > Startup
+
+### Common Culprits
+
+**Windows Search Indexing**
+After updates, Windows re-indexes files which causes high disk usage.
+- Wait 24-48 hours for indexing to complete
+- Or disable: Services.msc > Windows Search > Disable
+
+**SysMain (Superfetch)**
+Can cause high disk usage on HDDs:
+- Services.msc > SysMain > Set to Disabled
+- Note: Keep enabled on SSD systems
+
+**Background Apps**
+- Settings > Apps > Installed apps
+- Click three dots on apps > Advanced options
+- Set "Background app permissions" to Never for unused apps
+
+---
+
+## Bluetooth Not Finding Devices
+
+### Resolution Steps
+
+1. Toggle Bluetooth off and on:
+   - Settings > Bluetooth & devices
+   - Turn off, wait 10 seconds, turn on
+
+2. Run Bluetooth troubleshooter:
+   - Settings > System > Troubleshoot > Other troubleshooters
+   - Run "Bluetooth"
+
+3. Check Bluetooth services:
+   - Services.msc
+   - Ensure "Bluetooth Support Service" is Running
+   - Set to Automatic startup
+
+4. Update Bluetooth driver:
+   - Device Manager > Bluetooth
+   - Right-click adapter > Update driver
+   - Search automatically
+
+5. Remove and re-pair device:
+   - Settings > Bluetooth & devices
+   - Remove the problematic device
+   - Put device in pairing mode
+   - Add device again
+
+---
+
+## File Explorer Crashes When Opening Folders
+
+### Symptoms
+- Explorer.exe crashes when navigating to specific folders
+- "Windows Explorer has stopped working" error
+
+### Solutions
+
+**Clear Explorer History**
+1. Open File Explorer Options (search "folder options")
+2. General tab > Clear button next to "Clear File Explorer history"
+
+**Disable Quick Access**
+1. File Explorer Options > General tab
+2. Change "Open File Explorer to" from "Quick access" to "This PC"
+3. Uncheck "Show recently used files" and "Show frequently used folders"
+
+**Check for Corrupted Thumbnails**
+1. Open Disk Cleanup (search "disk cleanup")
+2. Select system drive
+3. Check "Thumbnails"
+4. Click OK to clean
+
+---
+
+## Windows 11 Won't Wake From Sleep
+
+### BIOS Settings
+- Enter BIOS (usually F2 or Del during startup)
+- Look for "Wake on LAN" or "Power Management"
+- Enable "USB Wake Support" if using USB keyboard/mouse
+
+### Driver Updates
+1. Device Manager > System devices
+2. Update "Intel Management Engine" drivers
+3. Update display adapter drivers
+
+### Disable Hybrid Sleep
+1. Control Panel > Power Options
+2. Change plan settings > Change advanced power settings
+3. Sleep > Allow hybrid sleep > Off

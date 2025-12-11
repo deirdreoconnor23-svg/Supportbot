@@ -1,0 +1,85 @@
+# VPN Troubleshooting Guide
+
+## VPN Connection Drops Every 30 Minutes
+
+### Symptoms
+- User reports VPN disconnects approximately every 30 minutes
+- Affects Windows 10 and Windows 11 machines
+- Often occurs after Windows updates
+
+### Root Cause
+Windows power management settings can disable network adapters to save power, interrupting VPN connections.
+
+### Resolution Steps
+
+1. Open Device Manager (right-click Start > Device Manager)
+2. Expand "Network adapters"
+3. Right-click your network adapter > Properties
+4. Go to "Power Management" tab
+5. Uncheck "Allow the computer to turn off this device to save power"
+6. Click OK and restart
+
+### If Issue Persists
+
+Check the VPN client idle timeout settings:
+- Open VPN client configuration
+- Look for "Idle Timeout" or "Session Timeout"
+- Increase value or set to 0 (no timeout)
+
+### Related Issues
+- KB-2341: VPN fails to connect after Windows 11 24H2 update
+- KB-2298: Split tunneling configuration for remote workers
+
+---
+
+## VPN Authentication Failures
+
+### Symptoms
+- "Authentication failed" error
+- User credentials rejected despite correct password
+
+### Common Causes
+1. Password recently changed - VPN client cached old credentials
+2. Certificate expired
+3. MFA token sync issue
+
+### Resolution
+
+For cached credentials:
+1. Open Credential Manager (Windows search > "Credential Manager")
+2. Select "Windows Credentials"
+3. Find VPN-related entries
+4. Remove them
+5. Reconnect and enter new password
+
+For certificate issues:
+- Check certificate expiry: certmgr.msc
+- Request new certificate from IT Security if expired
+
+For MFA issues:
+- Resync authenticator app
+- Contact helpdesk for MFA reset if needed
+
+---
+
+## VPN Slow Performance
+
+### Diagnostic Steps
+
+1. Run speed test WITHOUT VPN connected
+2. Run speed test WITH VPN connected
+3. Compare results
+
+### If VPN Speed is Less Than 50% of Normal
+
+Check for split tunneling:
+- Traffic to internal resources should go through VPN
+- Internet traffic should go direct (if policy allows)
+
+Check VPN server load:
+- Try connecting to different VPN gateway
+- Peak hours (9-10am, 2-3pm) often have congestion
+
+Check MTU settings:
+- Open Command Prompt as admin
+- Run: netsh interface ipv4 set subinterface "Local Area Connection" mtu=1400 store=persistent

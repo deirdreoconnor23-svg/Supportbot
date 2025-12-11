@@ -1,0 +1,103 @@
+# Printer Setup and Troubleshooting
+
+## Adding a Network Printer
+
+### Windows 11 Method
+1. Settings > Bluetooth & devices > Printers & scanners
+2. Click "Add device"
+3. Wait for Windows to detect printers
+4. Select your printer and click "Add device"
+
+### If Printer Not Auto-Detected
+1. Click "Add manually" or "The printer that I want isn't listed"
+2. Select "Add a printer using TCP/IP address"
+3. Enter printer IP address (check printer display or print network config page)
+4. Windows will search for drivers
+
+### Finding Printer IP Address
+- On printer: Menu > Network Settings > TCP/IP or Network Status
+- Print a configuration page: Usually hold a button combination (check printer manual)
+
+---
+
+## Print Jobs Stuck in Queue
+
+### Quick Clear Method
+1. Open Services.msc
+2. Find "Print Spooler"
+3. Right-click > Stop
+4. Open File Explorer
+5. Navigate to: C:\Windows\System32\spool\PRINTERS
+6. Delete all files in this folder
+7. Go back to Services
+8. Right-click Print Spooler > Start
+
+### PowerShell Method (faster)
+Run as Administrator:
+```
+Stop-Service -Name Spooler -Force
+Remove-Item -Path "$env:SystemRoot\System32\spool\PRINTERS\*" -Force
+Start-Service -Name Spooler
+```
+
+---
+
+## Printer Showing Offline
+
+### Check Physical Connection
+- Is printer powered on?
+- Check USB cable or network cable
+- For wireless: Is printer connected to correct WiFi network?
+
+### Windows Troubleshooting
+1. Settings > Bluetooth & devices > Printers & scanners
+2. Select the printer
+3. Click "Run the troubleshooter"
+
+### Manual Fix
+1. Select printer > Printer properties
+2. Ports tab > Verify correct port selected
+3. For network printers: Ensure IP hasn't changed
+4. Advanced tab > Uncheck "Enable advanced printing features" (sometimes helps)
+
+### Set as Default
+Sometimes Windows switches default printer:
+1. Settings > Bluetooth & devices > Printers & scanners
+2. Turn OFF "Let Windows manage my default printer"
+3. Select your printer > Set as default
+
+---
+
+## Poor Print Quality
+
+### For Inkjet Printers
+1. Run print head cleaning (usually in printer software or printer menu)
+2. Print alignment page
+3. Check ink levels
+4. Use correct paper type setting
+
+### For Laser Printers
+1. Open printer and gently shake toner cartridge (redistributes toner)
+2. Check toner level
+3. Clean the drum unit if streaks appear
+4. Run calibration from printer menu
+
+### Driver Issues
+1. Download latest driver from manufacturer website (not Windows Update)
+2. Uninstall current driver completely
+3. Restart
+4. Install fresh driver
+
+---
+
+## Duplex (Double-Sided) Printing Not Working
+
+### Enable in Driver
+1. Printers & scanners > Select printer > Printing preferences
+2. Look for "Print on both sides" or "Duplex"
+3. Select "Flip on long edge" for normal documents
+
+### If Option Greyed Out
+- Printer may not support automatic duplex
+- Check printer specifications
+- Manual duplex: Print odd pages, flip paper, print even pages
