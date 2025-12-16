@@ -6,6 +6,11 @@ A RAG-powered IT support knowledge base that keeps all data local and private.
 
 SupportBot takes your IT documentation (troubleshooting guides, runbooks, past ticket solutions) and makes them searchable using natural language. Ask a question, get an answer with sources - all running locally on your machine.
 
+## Demo
+
+▶️ [Watch the demo video](https://youtube.com/shorts/kluOhdtfw6w)
+
+
 ## Project Structure
 
 ```
