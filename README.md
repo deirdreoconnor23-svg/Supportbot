@@ -8,7 +8,7 @@ SupportBot takes your IT documentation (troubleshooting guides, runbooks, past t
 
 ## Demo
 
-▶️ [Watch the demo video](https://youtube.com/shorts/kluOhdtfw6w)
+▶️ [Watch the demo video](https://youtu.be/TQzZCyZ6V50)
 
 
 ## Project Structure
