@@ -1,10 +1,10 @@
-# SupportBot - IT Knowledge Assistant
+# Patch  - IT Knowledge Assistant
 
 A RAG-powered IT support knowledge base that keeps all data local and private.
 
 ## What This Project Does
 
-SupportBot takes your IT documentation (troubleshooting guides, runbooks, past ticket solutions) and makes them searchable using natural language. Ask a question, get an answer with sources - all running locally on your machine.
+Patch takes your IT documentation (troubleshooting guides, runbooks, past ticket solutions) and makes them searchable using natural language. Ask a question, get an answer with sources - all running locally on your machine.
 
 ## Demo
 
