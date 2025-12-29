@@ -94,7 +94,6 @@ No API keys required. No cloud services. No data leakage.
 - [ ] Add PDF support
 - [ ] Implement conversation memory
 - [ ] Add source citations with page numbers
-- [ ] Build Streamlit UI
 - [ ] Add confidence scoring
 
 ## Troubleshooting
