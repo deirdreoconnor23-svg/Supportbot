@@ -4,7 +4,13 @@ A RAG-powered IT support knowledge base that keeps all data local and private.
 
 ## What This Project Does
 
-Patch takes your IT documentation (troubleshooting guides, runbooks, past ticket solutions) and makes them searchable using natural language. Ask a question, get an answer with sources - all running locally on your machine.
+Patch demonstrates how to build an AI-powered IT support assistant that:
+- Runs entirely locally using Ollama and Llama 3.2 (no cloud dependency)
+- Uses ChromaDB vector database for document storage and retrieval
+- Answers IT support questions using RAG architecture
+- Maintains complete data privacy with zero external API calls
+
+This is a learning project showcasing the fundamentals of building privacy-preserving GenAI applications. Currently includes demo IT support scenarios for testing.
 
 ## Demo
 
